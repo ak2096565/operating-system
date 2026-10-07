@@ -1,11 +1,5 @@
 #include<stdio.h>
-void swap(int a,int b){
-   int temp;
-   temp=a;
-   a=b;
-   b=temp;
-   printf("%d %d",a,b);
-}
+
 void FCFS(int n,int pid[],int at[],int bt[]){
    int ct[n];
    int tat[n];
@@ -16,12 +10,30 @@ void FCFS(int n,int pid[],int at[],int bt[]){
 
    //sorting the arrival time, process id ,brust time,
 
-   for(int i=0;i<n;i++){
-      for(int j=0;j<n-1-i;i++){
+   for(int i=0;i<n-1;i++){
+      for(int j=0;j<n-1-i;j++){
       if(at[j]>at[j+1]){
-         swap(at[j],at[j+1]);
-         swap(pid[j],pid[j+1]);
-         swap(bt[j],bt[j+1]);
+         int temp,temp1,temp2;
+
+         // sorting arriva time
+
+         temp=at[j];
+         at[j]=at[j+1];
+         at[j+1]=temp;
+
+         //sorting process id
+
+         temp1=pid[j];
+         pid[j]=pid[j+1];
+         pid[j+1]=temp1;
+
+         //sorting brust time
+
+         temp2=bt[j];
+         bt[j]=bt[j+1];
+         bt[j+1]=temp2;
+
+         
 
       }
       }
@@ -51,7 +63,7 @@ void FCFS(int n,int pid[],int at[],int bt[]){
 
    }
    printf("\navarage waiting time = %f ",total_wt/n);
-   printf("\navarage waiting time = %f ",total_tat/n);
+   printf("\navarage turnaround time = %f ",total_tat/n);
    
 }
 
@@ -70,8 +82,8 @@ int main(){
    //    scanf("%d",&bt[i]);
    // }
    for(int i=0;i<n;i++){
-      pid[i]=i;
-      printf("enter arrival time of P%d : ",i);
+      pid[i]=i+1;
+      printf("enter arrival time of P%d : ",i+1);
       scanf("%d",&at[i]);
    }
    for(int i=0;i<n;i++){
