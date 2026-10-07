@@ -75,8 +75,8 @@ int main(){
    int at[n];
    int bt[n];
    // for(int i=0;i<n;i++){
-   //    pid[i]=i;
-   //    printf("enter arrival time of P%d : ",i);
+   //    pid[i]=1+1;
+   //    printf("enter arrival time of P%d : ",i+1);
    //    scanf("%d",&at[i]);
    //    printf("enter burst time of P%d : ",i);
    //    scanf("%d",&bt[i]);
@@ -87,7 +87,7 @@ int main(){
       scanf("%d",&at[i]);
    }
    for(int i=0;i<n;i++){
-      printf("enter brust time time of P%d : ",i);
+      printf("enter brust time time of P%d : ",i+1);
       scanf("%d",&bt[i]);
    }
     FCFS(n,pid,at,bt);
